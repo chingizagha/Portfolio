@@ -1,0 +1,196 @@
+﻿h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 20px;
+}
+
+h1,
+h4 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h2,
+h3 {
+    font-weight: 300;
+    color: #22a39f;
+}
+
+h2 {
+    font-size: 54px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.jc-space-bet {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.d-inlineB {
+    display: inline-block;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+/* Margin Size Section */
+
+.mar-20 {
+    margin: 20px;
+}
+
+.mar-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.mar-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.mar-bottom-5 {
+    margin-bottom: 5px;
+}
+
+.mar-left-10 {
+    margin-left: 10px;
+}
+
+.mar-top-20 {
+    margin-top: 20px;
+}
+/********************/
+
+/* Padding Size Section  */
+
+.pad-r-l-15 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.pad-l-0 {
+    padding-left: 0;
+}
+
+.pad-t-20 {
+    padding-top: 20px !important;
+}
+
+
+/* Font Size */
+
+.font-size-15 {
+    font-size: 15px;
+}
+
+/* Features of Websites  */
+
+.header-h2 {
+    font-size: 54px;
+    color: #22a39f;
+    font-weight: 300;
+}
+
+.header-h2-contact {
+    font-size: 54px;
+    color: #fff;
+    font-weight: 300;
+}
+
+.header-p {
+    font-size: 21px;
+    color: #6e7474;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+    /* border-bottom: 2.5px solid #fff;
+    border-bottom-color: rgba(255,255,255,0.35); */
+}
+
+.header-p-contact {
+    font-size: 21px;
+    color: #727878;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hr-bottom-border {
+    margin: 40px 0;
+    opacity: 0.2;
+    /*border-color: #727878;*/
+}
+
+.hr-bottom-border-contact {
+    margin: 40px 0;
+    opacity: 0.2;
+    border-color: #727878;
+}
+
+/* Button Section  */
+
+.btn-contact {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #fff;
+    border-color: #22A39F;
+    border: 1px solid #22A39F;
+    font-family: "Oswald", sans-serif;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+    .btn-contact:hover {
+        background-color: #22A39F;
+        border-color: #434242;
+    }
+
+/* Color Section  */
+
+.fff {
+    color: #fff !important;
+}

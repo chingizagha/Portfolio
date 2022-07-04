@@ -1,0 +1,285 @@
+﻿@model HomeViewModel
+
+    <div id="block-1">
+        <div class="container">
+            @foreach (var item in @Model.Person)
+            {
+                <h1>@item.Name</h1>
+            }
+            <p>Interactive resume</p>
+        </div>
+        <div class="overlay"></div>
+        <a href="#block-2" class="icon-down-arrow-a">
+            <i class="fas fa-angle-down icon-down-arrow"></i>
+        </a>
+    </div>
+
+    <nav>
+        <div class="div">
+            <ul>
+                <li>
+                    <a href="#block-2" class="menuItem active">Profile</a>
+                </li>
+                <li>
+                    <a href="#block-3" class="menuItem">Experiences</a>
+                </li>
+                <li>
+                    <a href="#block-4" class="menuItem">Abilities</a>
+                </li>
+                <li>
+                    <a href="#block-5" class="menuItem">Projects</a>
+                </li>
+                <li>
+                    <a href="#block-6" class="menuItem">Blogs</a>
+                </li>
+                <li>
+                    <a href="#block-7" class="menuItem">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    @foreach (var item in @Model.Person)
+    {
+    <div id="block-2" class="profile navItem">
+        <div class="container">
+            <div class="row text-center">
+                <h2 class="header-h2 ">Profile</h2>
+                <p class="header-p">@item.JobDesc</p>
+                <hr class="hr-bottom-border">
+            </div>
+            <div class="row d-flex">
+                <div class="profile-col col-4">
+                    <h3>About me</h3>
+                    <p class="text-col">@item.AboutMe</p>
+                </div>
+                <div class="profile-col profile-col-img col-4">
+                    <figure>
+                        <img src="static/uploads/profile.image" alt="">
+                    </figure>
+                </div>
+                <div class="profile-col col-4 mar-left-10">
+                    <h3>Details</h3>
+                    <p> <div class="font-bold mar-bottom-5">Name:</div>
+                        <div class="mar-bottom-10">@item.Name</div>
+                        <div class="font-bold mar-bottom-5">Age:</div>
+                        <div class="mar-bottom-10">@item.Age years</div>
+                        <div class="font-bold mar-bottom-5">Location:</div>
+                        <div class="mar-bottom-10">@item.Location</div>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+    }
+    
+
+<div id="block-3" class="navItem">
+
+        <div class="container">
+
+            <h2 class="header-h2 ">Experiences</h2>
+            <p class="header-p">“Protons give an atom its identity, electrons its personality.”
+                - Bill Bryson, A short history of nearly everything</p>
+            
+            <hr class="hr-bottom-border">
+
+           
+            
+            <div class="row education-sec">
+                <h3 class="mar-bottom-20">Educations</h3>
+
+                <div class="education-box">
+                    @foreach (var item in @Model.Educations)
+                    {
+                    <div class="education-box-mini d-flex">
+                       
+                        <div class="col-4">
+                            <h4>@item.Name</h4>
+                            <p class="font-size-15">@item.StartDate - @item.EndDate</p>
+                        </div>
+
+                        <div class="col-8">
+                            <p>
+                                <p class="font-bold mar-bottom-10">
+                                    @item.ShortDesc
+                                </p>
+    
+                                <p class="mar-bottom-10 font-size-15">
+                                    @item.LongDesc
+                                </p>
+    
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    @item.Location
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <hr class="hr-bottom-border">
+            </div>
+            
+
+            
+            <div class="row careers-sec">
+
+                <h3 class="mar-bottom-20">Careers</h3>
+
+                <div class="careers-box">
+                    @foreach (var item in @Model.Careers)
+                     {
+                    <div class="careers-box-mini d-flex">
+
+                        <div class="col-4">
+                            <h4>@item.Name</h4>
+                            <p class="font-size-15">@item.StartDate - @item.EndDate</p>
+                        </div>
+
+                        <div class="col-8">
+                            <p>
+                                <p class="font-bold mar-bottom-10">
+                                    @item.ShortDesc
+                                </p>
+    
+                                <p class="mar-bottom-10 font-size-15">
+                                    @item.LongDesc
+                                </p>
+                                <span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        @item.Location 
+                                    </span>
+                                    <span>|</span>
+                                    <span>
+                                        <i class="fas fa-link"></i> <a href="@item.Link"></a> 
+                                    </span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="block-4" class="navItem">
+        <div class="container">
+
+            <h2 class="header-h2 ">Abilities</h2>
+            <p class="header-p">“Life without knowledge is death in disguise.” <br>
+                - Talib Kweli</p>
+
+            
+
+            <hr class="hr-bottom-border">
+
+            
+            <div class="row">
+                <div class="row">
+                    <h3>Languages</h3>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-6 pad-r-l-15 pad-l-0">
+                        @foreach (var item in @Model.Languages)
+                        {
+                        <ul>
+                            <li class="d-flex">
+                                <span class="ability-name">
+                                    @item.Name
+                                </span>
+                                <span class="ability-star">
+                                    @for (var i = 0; i <= @item.Level; i++)
+                                    {
+                                        <i class="fas fa-star"></i>
+                                    }
+                                </span>
+                            </li>
+                        </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div id="block-5" class="navItem">
+        <div class="container">
+            <div class="row">
+                <h2 class="header-h2 ">Projects</h2>
+                <p class="header-p">“You can do anything you set your mind to.” <br>
+                    - Benjamin Franklin</p>
+            </div>
+
+            <hr class="hr-bottom-border">
+            {% for project in project %}
+            <div class="row d-flex">
+                <div class="col-6">
+                    
+                    <figure class="fig-pro-img">
+                        <img src="static/uploads/{{project.image}}" alt="">
+                        <figcaption>
+                            <h3 class="font-bold fff">
+                                {{project.name}}
+                            </h3>
+                            <p class="fff"> 
+                                {{project.desc}}
+                            </p>
+                            <p class="fff pad-t-20">
+                                <strong>Tags:</strong>
+                                <br>
+                                {{project.tag}}
+                            </p>
+                            <a href="{{project.link}}" target="_blank"></a>
+                            <span class="icon">
+                                <i class="fas fa-external-link-alt"></i>
+                            </span>
+                        </figcaption>
+                    </figure>
+                    
+                </div>
+                <div class="col-6 mar-left-10 ">
+                    <h2>Technology used:</h2>
+                    <p>{{project.tech}}</p>
+
+                    <ul>
+                        {{project.info}}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>*@
+
+    <div id="block-6" class="navItem">
+        <div class="container">
+            <div class="row">
+                <h2 class="header-h2 ">Blogs</h2>
+            </div>
+            <hr class="hr-bottom-border">
+            <div class="row d-flex jc-space-bet flex-wrap">
+                <div class="col-6">
+                    <figure class="fig-pro-img">
+                        
+                        <img src="static/uploads/" alt="">
+                        <figcaption>
+                            <h3 class="font-bold fff">
+                            </h3>
+                            <p class="fff"> 
+                            </p>
+                            <a href="blog.link" target="_blank"></a>
+                            <span class="icon">
+                                <i class="fas fa-external-link-alt"></i>
+                            </span>
+                        </figcaption>
+                        
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
