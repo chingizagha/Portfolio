@@ -14,9 +14,9 @@
         </a>
     </div>
 
-    <nav>
+    <nav class="navigation">
         <div class="div">
-            <ul>
+            <ul class="navbar-nav">
                 <li>
                     <a href="#block-2" class="menuItem active">Profile</a>
                 </li>
@@ -30,32 +30,32 @@
                     <a href="#block-5" class="menuItem">Projects</a>
                 </li>
                 <li>
-                    <a href="#block-6" class="menuItem">Blogs</a>
-                </li>
-                <li>
-                    <a href="#block-7" class="menuItem">Contact</a>
+                    <a href="#block-6" class="menuItem">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    @foreach (var item in @Model.Person)
-    {
     <div id="block-2" class="profile navItem">
         <div class="container">
             <div class="row text-center">
+            @foreach (var item in @Model.Person)
+            {
                 <h2 class="header-h2 ">Profile</h2>
                 <p class="header-p">@item.JobDesc</p>
                 <hr class="hr-bottom-border">
+            }
             </div>
-            <div class="row d-flex">
+            @foreach (var item in @Model.Person)
+            {
+            <div class="row d-flex profile-d-flex">
                 <div class="profile-col col-4">
                     <h3>About me</h3>
                     <p class="text-col">@item.AboutMe</p>
                 </div>
                 <div class="profile-col profile-col-img col-4">
                     <figure>
-                        <img src="static/uploads/profile.image" alt="">
+                        <img src="@Url.Content("~/image/"+@item.Image.Name)" asp-append-version="true" alt="...">
                     </figure>
                 </div>
                 <div class="profile-col col-4 mar-left-10">
@@ -69,12 +69,12 @@
                     </p>
                 </div>
             </div>
+            }
             <div class="row">
 
             </div>
         </div>
     </div>
-    }
     
 
 <div id="block-3" class="navItem">
@@ -83,7 +83,9 @@
 
             <h2 class="header-h2 ">Experiences</h2>
             <p class="header-p">“Protons give an atom its identity, electrons its personality.”
-                - Bill Bryson, A short history of nearly everything</p>
+            <br>
+            - Bill Bryson, A short history of nearly everything</p>
+                    
             
             <hr class="hr-bottom-border">
 
@@ -99,7 +101,7 @@
                        
                         <div class="col-4">
                             <h4>@item.Name</h4>
-                            <p class="font-size-15">@item.StartDate - @item.EndDate</p>
+                            <p class="font-size-15">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(@item.StartDate.Month) @item.StartDate.Year - @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(@item.EndDate.Month) @item.EndDate.Year</p>
                         </div>
 
                         <div class="col-8">
@@ -108,7 +110,7 @@
                                     @item.ShortDesc
                                 </p>
     
-                                <p class="mar-bottom-10 font-size-15">
+                                <p class="mar-bottom-10 font-size-15 edu-long">
                                     @item.LongDesc
                                 </p>
     
@@ -116,7 +118,7 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                     @item.Location
                                 </span>
-                            </p>
+                        </p>
                         </div>
                     </div>
                     }
@@ -137,7 +139,7 @@
 
                         <div class="col-4">
                             <h4>@item.Name</h4>
-                            <p class="font-size-15">@item.StartDate - @item.EndDate</p>
+                            <p class="font-size-15">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(@item.StartDate.Month) @item.StartDate.Year - @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(@item.EndDate.Month) @item.EndDate.Year</p>
                         </div>
 
                         <div class="col-8">
@@ -146,7 +148,7 @@
                                     @item.ShortDesc
                                 </p>
     
-                                <p class="mar-bottom-10 font-size-15">
+                                <p class="mar-bottom-10 font-size-15 car-long">
                                     @item.LongDesc
                                 </p>
                                 <span>
@@ -156,7 +158,9 @@
                                     </span>
                                     <span>|</span>
                                     <span>
-                                        <i class="fas fa-link"></i> <a href="@item.Link"></a> 
+                                         <a href="@item.Link">
+                                             <i class="fas fa-link"></i>
+                                         </a> 
                                     </span>
                                 </span>
                             </p>
@@ -166,8 +170,10 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
+    @{int rowNumber1 = 0;}
+    @{int rowNumber2 = 0;}
     <div id="block-4" class="navItem">
         <div class="container">
 
@@ -175,40 +181,70 @@
             <p class="header-p">“Life without knowledge is death in disguise.” <br>
                 - Talib Kweli</p>
 
-            
-
             <hr class="hr-bottom-border">
-
-            
             <div class="row">
                 <div class="row">
                     <h3>Languages</h3>
                 </div>
-                <div class="row d-flex">
+                <div class="row d-flex lang-row">
                     <div class="col-6 pad-r-l-15 pad-l-0">
-                        @foreach (var item in @Model.Languages)
-                        {
                         <ul>
-                            <li class="d-flex">
-                                <span class="ability-name">
-                                    @item.Name
-                                </span>
-                                <span class="ability-star">
-                                    @for (var i = 0; i <= @item.Level; i++)
-                                    {
-                                        <i class="fas fa-star"></i>
-                                    }
-                                </span>
-                            </li>
+                            @foreach (var item in @Model.Languages)
+                            {
+                            rowNumber1++;
+                                @if (@rowNumber1 % 2 != 0)
+                                {
+                                    <li class="d-flex">
+                                    <span class="ability-name">
+                                        @item.Name  
+                                    </span>
+                                    <span class="ability-star">
+                                        @for (var i = 0; i < @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star filled"></i>
+                                        }
+                                        @for(var i = 0; i < 5 - @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                    </span>
+                                    </li>
+                                }
+                            }
                         </ul>
-                        }
+                    </div>
+                    <div class="col-6 pad-r-l-15 pad-l-0">
+                        <ul>
+                            @foreach(var item in @Model.Languages)
+                            {
+                            rowNumber2++;
+                                @if(@rowNumber2 % 2 == 0)
+                                {
+                                    <li class="d-flex">
+                                    <span class="ability-name">
+                                        @item.Name
+                                    </span>
+                                    <span class="ability-star">
+                                        @for (var i = 0; i < @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star filled"></i>
+                                        }
+                                        @for(var i = 0; i < 5 - @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                    </span>
+                                    </li>
+                                }
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    @*<div id="block-5" class="navItem">
+    <div id="block-5" class="navItem">
         <div class="container">
             <div class="row">
                 <h2 class="header-h2 ">Projects</h2>
@@ -217,25 +253,26 @@
             </div>
 
             <hr class="hr-bottom-border">
-            {% for project in project %}
-            <div class="row d-flex">
+            @foreach (var item in @Model.Projects)
+            {
+            <div class="row d-flex d-in-media">
                 <div class="col-6">
                     
                     <figure class="fig-pro-img">
-                        <img src="static/uploads/{{project.image}}" alt="">
+                        <img src="@Url.Content("~/image/"+@item.Image.Name)" alt="">
                         <figcaption>
                             <h3 class="font-bold fff">
-                                {{project.name}}
+                                @item.Name
                             </h3>
                             <p class="fff"> 
-                                {{project.desc}}
+                                
                             </p>
                             <p class="fff pad-t-20">
-                                <strong>Tags:</strong>
+                                @item.Desc
                                 <br>
-                                {{project.tag}}
+                                
                             </p>
-                            <a href="{{project.link}}" target="_blank"></a>
+                            <a href="@item.Link" target="_blank"></a>
                             <span class="icon">
                                 <i class="fas fa-external-link-alt"></i>
                             </span>
@@ -243,43 +280,64 @@
                     </figure>
                     
                 </div>
-                <div class="col-6 mar-left-10 ">
+                <div class="col-6 mar-left-10 tech">
                     <h2>Technology used:</h2>
-                    <p>{{project.tech}}</p>
+                    <p>
+                        @item.UsedTech
+                    </p>
 
                     <ul>
-                        {{project.info}}
+                        
                     </ul>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>*@
-
-    <div id="block-6" class="navItem">
-        <div class="container">
-            <div class="row">
-                <h2 class="header-h2 ">Blogs</h2>
-            </div>
-            <hr class="hr-bottom-border">
-            <div class="row d-flex jc-space-bet flex-wrap">
-                <div class="col-6">
-                    <figure class="fig-pro-img">
-                        
-                        <img src="static/uploads/" alt="">
-                        <figcaption>
-                            <h3 class="font-bold fff">
-                            </h3>
-                            <p class="fff"> 
-                            </p>
-                            <a href="blog.link" target="_blank"></a>
-                            <span class="icon">
-                                <i class="fas fa-external-link-alt"></i>
-                            </span>
-                        </figcaption>
-                        
-                    </figure>
-                </div>
-            </div>
+            }
         </div>
     </div>
+
+
+    <div id="block-6" class="navItem">
+    <div class="container"> 
+        <div class="row">
+            <h2 class="header-h2-contact">Contact</h2>
+            <p class="header-p-contact">“If I had asked people what they wanted, they would have said faster horses. ”
+                <br>
+                - Henry Ford
+            </p>
+        </div>
+        <hr class="hr-bottom-border-contact">
+        <div class="row row-2 d-flex">
+            <div class="col-6 mar-top-20">
+                <ul>
+                    <li> 
+                        <a href="https://github.com/chingizagha" class="d-flex">
+                            <i class="fab fa-github-square"></i><p>https://github.com/chingizagha</p> 
+                        </a>
+                    </li>
+                    <li> 
+                        <a href="https://twitter.com/CingizAga" class="d-flex">
+                            <i class="fab fa-twitter-square"></i> <p>https://twitter.com/CingizAga</p> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 mar-top-20">
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/chingiz-agha/" class="d-flex">
+                          <i class="fab fa-linkedin"></i> <p>https://www.linkedin.com/in/chingiz-agha/</p> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cingiz167@gmail.com" class="d-flex">
+                           <i class="fas fa-envelope"></i> <p>https://www.cingiz167@gmail.com</p> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="hr-bottom-border-contact">
+        <div class="row">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model Person
+
+<div class="contact-form">
+<h1>Add Person Data for your Resume</h1>
+
+<form asp-action="Add" method="post" role="form" class="form-horizontal">
+  
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Name" class="form-label">Name</label>
+    <input asp-for="@Model.Name" type="text" class="form-control" aria-describedby="name">
+    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Age" class="form-label">Age</label>
+    <input asp-for="@Model.Age" type="number" class="form-control" aria-describedby="age">
+    <span asp-validation-for="@Model.Age" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Location" class="form-label">Location</label>
+    <input asp-for="@Model.Location" type="text" class="form-control" aria-describedby="location">
+    <span asp-validation-for="@Model.Location" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+    <label asp-for="@Model.JobDesc" class="form-label">JobDesc</label>
+    <input asp-for="@Model.JobDesc" type="text" class="form-control" aria-describedby="Job Description">
+    <span asp-validation-for="@Model.JobDesc" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+    <label asp-for="@Model.AboutMe" class="form-label">AboutMe</label>
+    @*<input asp-for="@Model.AboutMe" type="text" class="form-control" aria-describedby="About Me">*@
+    <textarea asp-for="@Model.AboutMe" class="form-control" rows="4"></textarea>
+    <span asp-validation-for="@Model.AboutMe" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="@Model.ImageId" class="form-label">JobDesc</label>
+        <select asp-for="@Model.ImageId" class="form-control" >
+            @await Component.InvokeAsync("ImageSelect")
+        </select>   
+        @*<input asp-for="@Model.Images" type="text" class="form-control" aria-describedby="Job Description">*@
+        <span asp-validation-for="@Model.ImageId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

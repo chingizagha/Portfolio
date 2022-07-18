@@ -1,0 +1,30 @@
+﻿@model HomeViewModel
+
+
+@foreach (var item in @Model.Person)
+{
+<div class="card mb-3 mt-3" style="max-width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="@("~/image/"+@item.Image.Name)" asp-append-version="true" class="card-img rounded img-thumbnail" alt="..." >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">@item.Name</h5>
+        <p class="card-text"><small class="text-muted">Name: @item.Name</small></p>
+        <p class="card-text"><small class="text-muted">Age: @item.Age</small></p>
+        <p class="card-text"><small class="text-muted">Job Desc: @item.JobDesc</small></p>
+        <p class="card-text"><small class="text-muted">Location: @item.Location</small></p>
+        <p class="card-text"><small class="text-muted">About Me: @item.AboutMe</small></p>
+
+        <a asp-controller="Person" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+        <a asp-controller="Person" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+        <form asp-controller="Person" asp-action="Remove" asp-route-id="@item.Id" class="d-inline"
+            onclick="return confirm('Are you sure you want to delete @item.Name?')">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+}

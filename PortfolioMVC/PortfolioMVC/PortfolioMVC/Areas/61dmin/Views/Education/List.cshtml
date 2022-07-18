@@ -1,0 +1,24 @@
+﻿@model HomeViewModel
+
+
+@foreach (var item in @Model.Educations)
+{
+<div class="card mt-3">
+  <div class="card-header">
+    @item.Name
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Short Description: @item.ShortDesc</h5>
+    <p class="card-text">Location: @item.Location</p>
+    <p class="card-text">Date: @item.StartDate - @item.EndDate</p>
+    <a asp-controller="Education" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+    <a asp-controller="Education" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+
+    <form asp-controller="Education" asp-action="Remove" asp-route-id="@item.Id" class="d-inline"
+        onclick="return confirm('Are you sure you want to delete @item.Name?')">
+        <button type="submit" class="btn btn-primary">Remove</button>
+    </form>
+
+  </div>
+</div>
+}

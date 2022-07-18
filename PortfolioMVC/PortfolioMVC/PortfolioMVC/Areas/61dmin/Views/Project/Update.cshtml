@@ -1,0 +1,45 @@
+﻿@model Project
+
+@using (Html.BeginForm("Update", "Project", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" value="@Model.Id"/>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Name" class="form-label">Name</label>
+    <input asp-for="@Model.Name" type="text" class="form-control" aria-describedby="name">
+    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Desc" class="form-label">Description</label>
+    <textarea asp-for="@Model.Desc" class="form-control" rows="4"></textarea>
+    <span asp-validation-for="@Model.Desc" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.UsedTech" class="form-label">Used Tech</label>
+    <textarea asp-for="@Model.UsedTech" class="form-control" rows="4"></textarea>
+    <span asp-validation-for="@Model.UsedTech" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+    <label asp-for="@Model.Link" class="form-label">Link</label>
+    <input asp-for="@Model.Link" type="text" class="form-control" aria-describedby="Job Description">
+    <span asp-validation-for="@Model.Link" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="@Model.ImageId" class="form-label">Image</label>
+        <select asp-for="@Model.ImageId" class="form-control" >
+            @await Component.InvokeAsync("ImageSelect")
+        </select>   
+        @*<input asp-for="@Model.Images" type="text" class="form-control" aria-describedby="Job Description">*@
+        <span asp-validation-for="@Model.ImageId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    <a asp-controller="Project" asp-action="List" class="btn btn-secondary">Back to List</a> 
+}

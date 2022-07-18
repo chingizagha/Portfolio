@@ -1,0 +1,51 @@
+﻿@model HomeViewModel
+
+@foreach (var item in @Model.Images)
+{
+@*<div class="card mt-3">
+  <div class="card-header">
+    @item.Name
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Short Description: @item.ShortDesc</h5>
+    <p class="card-text">Location: @item.Location</p>
+    <p class="card-text">Date: @item.StartDate - @item.EndDate</p>
+    <a asp-controller="Education" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+    <a asp-controller="Education" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+
+    <form asp-controller="Education" asp-action="Remove" asp-route-id="@item.Id" class="d-inline"
+        onclick="return confirm('Are you sure you want to delete @item.Name?')">
+        <button type="submit" class="btn btn-primary">Remove</button>
+    </form>
+
+  </div>
+</div>*@
+
+@*<div class="card bg-dark text-white">
+  @*<img src="@("~/image/"+Model.ImageName)" asp-append-version="true" width="250px" height="250px"/>
+  <img src="("~/image/"+@item.Name)" asp-append-version="true" class="card-img" alt="..." width="250px" height="250px">
+  <div class="card-img-overlay">
+    <h5 class="card-title">@item.Title</h5>
+  </div>
+</div>*@
+
+<div class="card mb-3 mt-3" style="max-width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="@("~/image/"+@item.Name)" asp-append-version="true" class="card-img rounded img-thumbnail" alt="..." >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">@item.Title</h5>
+        <p class="card-text"><small class="text-muted">Name: @item.Name</small></p>
+        <form asp-controller="Image" asp-action="Remove" asp-route-id="@item.ImageId" class="d-inline"
+            onclick="return confirm('Are you sure you want to delete @item.Title?')">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+}

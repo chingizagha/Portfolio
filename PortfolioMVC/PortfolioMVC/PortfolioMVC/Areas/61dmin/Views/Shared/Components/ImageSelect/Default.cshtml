@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Image>
+
+        @foreach (var image in Model)
+        {
+            <option value="@image.ImageId">@image.Title</option>
+        }

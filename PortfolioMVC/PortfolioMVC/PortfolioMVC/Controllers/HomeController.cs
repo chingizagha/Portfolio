@@ -8,16 +8,19 @@ namespace PortfolioMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IGenericRepository<Person> _personRepository;
+        private readonly IPersonRepository _personRepository;
         private readonly IGenericRepository<Career> _careerRepository;
         private readonly IGenericRepository<Education> _educationRepository;
         private readonly IGenericRepository<Skill> _skillRepository;
         private readonly IGenericRepository<Language> _languageRepository;
         private readonly IGenericRepository<Tool> _toolRepository;
+        private readonly IProjectRepository _projectRepository;
+        private readonly IGenericRepository<Image> _imageRepository;
 
         public HomeController(ILogger<HomeController> logger, 
-            IGenericRepository<Person> personRepository, IGenericRepository<Career> careerRepository, IGenericRepository<Education> educationRepository,
-            IGenericRepository<Skill> skillRepository, IGenericRepository<Language> languageRepository, IGenericRepository<Tool> toolRepository)
+            IPersonRepository personRepository, IGenericRepository<Career> careerRepository, IGenericRepository<Education> educationRepository,
+            IGenericRepository<Skill> skillRepository, IGenericRepository<Language> languageRepository, IGenericRepository<Tool> toolRepository,
+            IProjectRepository projectRepository, IGenericRepository<Image> imageRepository)
         {
             _logger = logger;
             _personRepository = personRepository;
@@ -26,6 +29,8 @@ namespace PortfolioMVC.Controllers
             _skillRepository = skillRepository;
             _languageRepository = languageRepository;
             _toolRepository = toolRepository;
+            _projectRepository = projectRepository;
+            _imageRepository = imageRepository;
         }
 
         public IActionResult Index()
@@ -37,7 +42,9 @@ namespace PortfolioMVC.Controllers
                 Educations = _educationRepository.GetAll,
                 Skills = _skillRepository.GetAll,
                 Languages = _languageRepository.GetAll,
-                Tools = _toolRepository.GetAll
+                Tools = _toolRepository.GetAll,
+                Projects = _projectRepository.GetAll,
+                Images = _imageRepository.GetAll,
             };
             return View(homeViewModel);
         }

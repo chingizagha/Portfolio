@@ -10,5 +10,7 @@ namespace PortfolioMVC.ViewModels
         public IEnumerable<Skill> Skills { get; set; }
         public IEnumerable<Tool> Tools { get; set; }
         public IEnumerable<Language> Languages { get; set; }
+        public IEnumerable<Project> Projects { get; set; }
+        public IEnumerable<Image> Images { get; set; }
     }
 }

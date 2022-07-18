@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+    
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="~/css/adminStyle.css" rel="stylesheet" />
+    <script href="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+    <script src="<% @Url.Content("~/lib/jqueryui/jquery-ui.js") %>" ></script>
+    <link href="~/lib/jqueryui/theme/redmond/jquery-ui.min.css" rel="stylesheet"> 
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarLeftAlignExample"
+      aria-controls="navbarLeftAlignExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">To Site</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Person
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Person" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Person" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Education
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Education" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Education" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Career
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Career" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Career" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Language
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Language" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Language" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Skill
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Skill" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Skill" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tool
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Tool" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Tool" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Project
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Project" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Project" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Image
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Image" asp-action="List">List</a></li>
+            <li><a class="dropdown-item" asp-area="61dmin" asp-controller="Image" asp-action="Add">Add</a></li>
+          </ul>
+        </li>
+
+        <partial name="_LoginPartial" />
+             
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+
+    <div class="container">
+
+        @RenderBody()
+
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+  

@@ -1,0 +1,23 @@
+﻿@model Skill
+
+<div class="contact-form">
+<h1>Add Person Data for your Resume</h1>
+
+<form asp-action="Add" method="post" role="form" class="form-horizontal">
+  
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Name" class="form-label">Name</label>
+    <input asp-for="@Model.Name" type="text" class="form-control" aria-describedby="name">
+    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Level" class="form-label">Level</label>
+    <input asp-for="@Model.Level" type="number" class="form-control" aria-describedby="age">
+    <span asp-validation-for="@Model.Level" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

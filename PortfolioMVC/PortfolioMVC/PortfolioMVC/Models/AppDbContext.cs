@@ -17,6 +17,8 @@ namespace PortfolioMVC.Models
         public DbSet<Language> Languages { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Tool> Tools { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Image> Images { get; set; }
 
     }
 }

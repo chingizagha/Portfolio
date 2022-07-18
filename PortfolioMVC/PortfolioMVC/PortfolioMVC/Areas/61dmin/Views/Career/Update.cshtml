@@ -1,0 +1,45 @@
+﻿@model Career
+
+@using (Html.BeginForm("Update", "Career", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" value="@Model.Id"/>
+
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Name" class="form-label">Name</label>
+    <input asp-for="@Model.Name" type="text" class="form-control" aria-describedby="Name">
+    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.ShortDesc" class="form-label">Short Description</label>
+    <input asp-for="@Model.ShortDesc" type="text" class="form-control" aria-describedby="Age">
+    <span asp-validation-for="@Model.ShortDesc" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.LongDesc" class="form-label">Long Description</label>
+    <textarea asp-for="@Model.LongDesc" class="form-control" rows="3"></textarea>
+    <span asp-validation-for="@Model.LongDesc" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Location" class="form-label">Location</label>
+    <input asp-for="@Model.Location" type="text" class="form-control" aria-describedby="Location">
+    <span asp-validation-for="@Model.Location" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+    <label asp-for="@Model.Link" class="form-label">Link</label>
+    <input asp-for="@Model.Link" type="text" class="form-control" aria-describedby="Location">
+    <span asp-validation-for="@Model.Link" class="text-danger"></span>
+    </div>
+
+    <partial name="_CareerDatePicker"/>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    <a asp-controller="Career" asp-action="List" class="btn btn-secondary">Back to List</a> 
+}

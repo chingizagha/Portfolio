@@ -1,0 +1,24 @@
+﻿@model Image
+
+<div class="contact-form">
+<h1>Add Image for your Resume</h1>
+
+<form asp-action="Add" method="post" role="form" class="form-horizontal" enctype="multipart/form-data">
+
+    <div class="mb-3 form-group">
+        <label asp-for="@Model.Title" class="form-label">Name</label>
+        <input asp-for="@Model.Title" type="text" class="form-control" aria-describedby="Name" />
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+        <label asp-for="@Model.ImageFile" class="form-label">Short Description</label>
+        <input asp-for="@Model.ImageFile" accept="image/*" />
+        <span asp-validation-for="@Model.ImageFile" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    
+
+</div>

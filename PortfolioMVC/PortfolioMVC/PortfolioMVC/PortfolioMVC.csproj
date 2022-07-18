@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,7 +6,12 @@
     <UserSecretsId>aspnet-PortfolioMVC-3034CC76-3EDD-45C3-AF48-395DCBA4305C</UserSecretsId>
   </PropertyGroup>
 
+    <PropertyGroup>
+	    <RuntimeIdentifiers>ubuntu.18.04-x64</RuntimeIdentifiers>
+    </PropertyGroup>
+
   <ItemGroup>
+    <PackageReference Include="jQuery.UI.Combined" Version="1.13.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
@@ -20,6 +25,24 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+	  
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\61dmin\ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\61dmin\Views\Shared\_AdminLayout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+    <ItemGroup>
+	    <None Include="wwwroot\*">
+	    </None>
+    </ItemGroup>
 </Project>

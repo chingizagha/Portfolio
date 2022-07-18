@@ -1,0 +1,38 @@
+﻿@model Career  
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  
+
+<div class="mb-3 form-group">
+    @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.StartDate, "{0:MM/yyyy}",new { htmlAttributes = new { @class = "datepicker" } })
+    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+</div>
+
+
+<div class="mb-3 form-group">
+    @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.EndDate, "{0:MM/yyyy}",new { htmlAttributes = new { @class = "datepicker" } })
+    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+</div>
+
+@section scripts {
+        <script type="text/javascript">
+
+            $('.datepicker').datepicker({
+                dateFormat: "MM/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        </script>
+}
+@* 
+<label asp-for="@Model.StartDate" for="from">From</label>
+<input asp-for="@Model.StartDate" type="datetime" id="from" name="from">
+<span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+
+<label asp-for="@Model.EndDate" for="to">to</label>
+<input asp-for="@Model.EndDate"type="datetime" id="to" name="to">
+<span asp-validation-for="@Model.EndDate" class="text-danger"></span>*@
