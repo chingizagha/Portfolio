@@ -1,2 +1,2 @@
 # See website in action
-chingizagha.co
+http://chingizagha.co/
