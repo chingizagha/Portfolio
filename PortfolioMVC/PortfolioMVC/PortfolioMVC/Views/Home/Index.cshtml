@@ -184,6 +184,65 @@
             <hr class="hr-bottom-border">
             <div class="row">
                 <div class="row">
+                    <h3>Skills</h3>
+                </div>
+                <div class="row d-flex lang-row">
+                    <div class="col-6 pad-r-l-15 pad-l-0">
+                        <ul>
+                            @foreach (var item in @Model.Skills)
+                            {
+                            rowNumber1++;
+                                @if (@rowNumber1 % 2 != 0)
+                                {
+                                    <li class="d-flex">
+                                    <span class="ability-name">
+                                        @item.Name  
+                                    </span>
+                                    <span class="ability-star">
+                                        @for (var i = 0; i < @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star filled"></i>
+                                        }
+                                        @for(var i = 0; i < 5 - @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                    </span>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-6 pad-r-l-15 pad-l-0">
+                        <ul>
+                            @foreach(var item in @Model.Skills)
+                            {
+                            rowNumber2++;
+                                @if(@rowNumber2 % 2 == 0)
+                                {
+                                    <li class="d-flex">
+                                    <span class="ability-name">
+                                        @item.Name
+                                    </span>
+                                    <span class="ability-star">
+                                        @for (var i = 0; i < @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star filled"></i>
+                                        }
+                                        @for(var i = 0; i < 5 - @item.Level; i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                    </span>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
                     <h3>Languages</h3>
                 </div>
                 <div class="row d-flex lang-row">
@@ -330,7 +389,7 @@
                     </li>
                     <li>
                         <a href="https://www.cingiz167@gmail.com" class="d-flex">
-                           <i class="fas fa-envelope"></i> <p>https://www.cingiz167@gmail.com</p> 
+                           <i class="fas fa-envelope"></i> <p>cingiz167@gmail.com</p> 
                         </a>
                     </li>
                 </ul>

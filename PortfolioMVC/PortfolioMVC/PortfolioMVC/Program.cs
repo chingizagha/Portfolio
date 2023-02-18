@@ -5,7 +5,7 @@ using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 //var connectionString01 = builder.Configuration.GetConnectionString("PortfolioDatabase"); /*?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");*/
-var connectionString02 = builder.Configuration.GetConnectionString("PortfolioMVC"); /*?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");*/
+var connectionString02 = builder.Configuration.GetConnectionString("PortfolioDatabase"); /*?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");*/
 
 //if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
     builder.Services.AddDbContext<AppDbContext>(options =>
@@ -14,7 +14,7 @@ var connectionString02 = builder.Configuration.GetConnectionString("PortfolioMVC
 //    builder.Services.AddDbContext<AppDbContext>(options =>
 //            options.UseSqlServer(connectionString01));
 
-//builder.Services.BuildServiceProvider().GetService<AppDbContext>().Database.Migrate();
+builder.Services.BuildServiceProvider().GetService<AppDbContext>().Database.Migrate();
 
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

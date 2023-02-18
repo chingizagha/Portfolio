@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bin/Axa5xOvg1hZVFc/q2Ui0aAeHallS+PBqk8/YpME=",
+  "Hash": "z2hzQEHRSl1s0YR0KnoJpXR4Wblnw1zJB6vVpVsajPA=",
   "Source": "PortfolioMVC",
   "BasePath": "_content/PortfolioMVC",
   "Mode": "Default",
@@ -1188,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\image\\background10212022.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\cingi\\Desktop\\CSharpWeb\\Portfolio\\PortfolioMVC\\PortfolioMVC\\PortfolioMVC\\wwwroot\\image\\favicon.ico",
+      "SourceId": "PortfolioMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\cingi\\Desktop\\CSharpWeb\\Portfolio\\PortfolioMVC\\PortfolioMVC\\PortfolioMVC\\wwwroot\\",
+      "BasePath": "_content/PortfolioMVC",
+      "RelativePath": "image/favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\favicon.ico"
     },
     {
       "Identity": "C:\\Users\\cingi\\Desktop\\CSharpWeb\\Portfolio\\PortfolioMVC\\PortfolioMVC\\PortfolioMVC\\wwwroot\\image\\giphy13.gif",

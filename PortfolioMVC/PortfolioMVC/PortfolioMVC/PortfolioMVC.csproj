@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>    
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-PortfolioMVC-3034CC76-3EDD-45C3-AF48-395DCBA4305C</UserSecretsId>
   </PropertyGroup>
